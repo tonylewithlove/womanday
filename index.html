@@ -28,5 +28,22 @@
     <div id="effects"></div>
 
     <script src="script.js"></script>
+    <script>
+        const backgrounds = [
+            'background1.jpg',
+            'background3.jpg',
+            'background.jpg',
+            'background2.jpg'
+        ];
+        
+        let currentIndex = 0;
+
+        function changeBackground() {
+            document.body.style.backgroundImage = `url('${backgrounds[currentIndex]}')`;
+            currentIndex = (currentIndex + 1) % backgrounds.length; // Lặp lại hình nền
+        }
+
+        setInterval(changeBackground, 7000); // Thay đổi nền sau mỗi 10 giây
+    </script>
 </body>
 </html>
