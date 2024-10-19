@@ -27,6 +27,9 @@
 
     <div id="effects"></div>
 
+    <audio id="background-music" autoplay muted loop>
+        <source src="background-music.mp3" type="audio/mp3">
+    </audio>
     <script src="script.js"></script>
     <script>
         const backgrounds = [
@@ -40,10 +43,18 @@
 
         function changeBackground() {
             document.body.style.backgroundImage = `url('${backgrounds[currentIndex]}')`;
-            currentIndex = (currentIndex + 1) % backgrounds.length; // Lặp lại hình nền
+            currentIndex = (currentIndex + 1) % backgrounds.length;
         }
 
-        setInterval(changeBackground, 7000); // Thay đổi nền sau mỗi 10 giây
+        setInterval(changeBackground, 7000);
+
+        function unmuteMusic() {
+            var audio = document.getElementById("background-music");
+            audio.muted = false;
+            audio.play();
+            audio.volume = 0.5;
+        }
+        setInterval(unmuteMusic, 3000);
     </script>
 </body>
 </html>
